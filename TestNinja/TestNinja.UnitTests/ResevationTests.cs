@@ -1,15 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using TestNinja.Fundamentals;
 
 namespace TestNinja.UnitTests
 {
-    class ResevationTests
+    [TestClass]
+    public class ReservationTests
     {
-        static void Main(string[] args)
+        [TestMethod]
+        public void CanBeCancelledBy_AdminCancelling_ReturnsTrue()
         {
+            // Arrange
+            var reservation = new Reservation();
+
+            // Act
+            var result = reservation.CanBeCancelledBy(new User { IsAdmin = true });
+
+            // Assert
+            Assert.IsTrue(result);
         }
     }
 }
