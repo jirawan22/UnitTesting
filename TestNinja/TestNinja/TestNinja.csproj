@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fundamentals\DemeritPointsCalculator.cs" />
+    <Compile Include="Fundamentals\FizzBuzz.cs" />
+    <Compile Include="Fundamentals\ErrorLogger.cs" />
+    <Compile Include="Fundamentals\CustomerController.cs" />
+    <Compile Include="Fundamentals\HtmlFormatter.cs" />
+    <Compile Include="Fundamentals\Math.cs" />
     <Compile Include="Fundamentals\Resevation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
