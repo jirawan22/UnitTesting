@@ -14,5 +14,24 @@ namespace TestNinja.UnitTests
             var result = math.Add(1, 2);
             Assert.That(result, Is.EqualTo(3));
         }
+        [Test]
+        public void Max_FirstArgumentIsGreater_ReturnTheFirstArgument()
+        {
+            var math = new Math();
+            var result = math.Add(2, 1);
+            Assert.That(result, Is.EqualTo(2));
+        }
+        public void Max_SecondArgumentIsGreater_ReturnTheSecondArgument()
+        {
+            var math = new Math();
+            var result = math.Add(1, 2);
+            Assert.That(result, Is.EqualTo(2));
+        }
+        public void Max_ArgumentIsGreater_ReturnTheSameArgument()
+        {
+            var math = new Math();
+            var result = math.Add(1, 1);
+            Assert.That(result, Is.EqualTo(1));
+        }
     }
 }
