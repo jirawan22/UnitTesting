@@ -11,7 +11,9 @@ namespace TestNinja.UnitTests.Mocking
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
             var service = new VideoService();
-            var result = service.ReadVideoTitle(new FakeFileReader());
+            service.FileReader = new FakeFileReader();
+
+            var result = service.ReadVideoTitle();
             Assert.That(result, Does.Contain("error").IgnoreCase);
 
         }
