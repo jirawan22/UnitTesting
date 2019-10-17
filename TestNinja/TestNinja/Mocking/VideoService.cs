@@ -10,9 +10,11 @@ namespace TestNinja.Mocking
     public class VideoService
     {
         private IFileReader _fileReader;
-        public VideoService(IFileReader fileReader = null)
+        private IVideoRepository _repository;
+        public VideoService(IFileReader fileReader = null, IVideoRepository repository = null)
         {
             _fileReader = fileReader ?? new FileReader();
+            _repository = repository ?? new VideoRepository();
         }
         public string ReadVideoTitle()
         {
@@ -27,12 +29,7 @@ namespace TestNinja.Mocking
         {
             var videoIds = new List<int>();
 
-            using (var context = new VideoContext())
-            {
-                var videos =
-                    (from video in context.Videos
-                     where !video.IsProcessed
-                     select video).ToList();
+           var videos = _repository.GetUnprocessedVideos();
                 foreach (var v in videos)
                     videoIds.Add(v.Id);
 
