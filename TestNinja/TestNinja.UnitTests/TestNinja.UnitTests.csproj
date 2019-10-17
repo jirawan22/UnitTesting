@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StackTests.cs" />
     <Compile Include="DemeritPointsCalculatorTests.cs" />
     <Compile Include="FizzBuzzTests.cs" />
     <Compile Include="ErrorLoggerTests.cs" />

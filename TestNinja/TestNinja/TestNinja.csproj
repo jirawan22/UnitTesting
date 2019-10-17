@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fundamentals\Stack.cs" />
     <Compile Include="Fundamentals\DemeritPointsCalculator.cs" />
     <Compile Include="Fundamentals\FizzBuzz.cs" />
     <Compile Include="Fundamentals\ErrorLogger.cs" />
