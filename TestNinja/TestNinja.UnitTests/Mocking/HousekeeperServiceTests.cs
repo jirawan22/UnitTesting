@@ -113,12 +113,17 @@ namespace TestNinja.UnitTests.Mocking
         }
 
         [Test]
-        public void SendStatementEmails_StatementFileNameIsWhitespace_ShouldNotEmailTheStatement()
+        public void SendStatementEmails_EmailSendingFails_DisplayAMessageBox()
         {
-            _statementFileName = "";
+            _emailSender.Setup(es => es.EmailFile(
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>(),
+                It.IsAny<string>()
+                )).Throws<Exception>();
 
             _service.SendStatementEmails(_statementDate);
-            VerifyEmailNotSent();
+            _messageBox.Verify(mb => mb.Show(It.IsAny<string>(), MessageBoxButtons.OK));
         }
         private void VerifyEmailNotSent()
         {
