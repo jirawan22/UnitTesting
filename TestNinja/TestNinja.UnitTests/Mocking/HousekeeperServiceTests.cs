@@ -32,7 +32,7 @@ namespace TestNinja.UnitTests.Mocking
             _statementFileName = "fileName";
              _statementGenerator = new Mock<IStatementGenerator>();
             _statementGenerator
-                .Setup(sg => sg.SaveStatement(_housekeeper.Oid, _housekeeper.FullName, (_statementDate)),
+                .Setup(sg => sg.SaveStatement(_housekeeper.Oid, _housekeeper.FullName, (_statementDate)))
  
                 .Returns(() => _statementFileName);
             
@@ -123,7 +123,7 @@ namespace TestNinja.UnitTests.Mocking
                 )).Throws<Exception>();
 
             _service.SendStatementEmails(_statementDate);
-            _messageBox.Verify(mb => mb.Show(It.IsAny<string>(), MessageBoxButtons.OK));
+            _messageBox.Verify(mb => mb.Show(It.IsAny<string>(), It.IsAny<string>(), MessageBoxButtons.OK));
         }
         private void VerifyEmailNotSent()
         {
